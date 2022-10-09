@@ -7,6 +7,10 @@
         <Grid>
             <ActivityIndicator IsRunning="True" IsVisible="{Binding Loading}" />
             <ListView ItemsSource="{Binding Items}" />
+            <VerticalStackLayout IsVisible="{Binding HasError}">
+                <Label Text="Loading failed" />
+                <Button Text="Retry" Command="{Binding InitCommand}" />
+            </VerticalStackLayout>
         </Grid>
     </ScrollView>
 
