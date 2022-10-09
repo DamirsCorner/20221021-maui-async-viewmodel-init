@@ -5,7 +5,7 @@ public class DataService
 
     public async Task<List<string>> LoadItems()
     {
-        await Task.Delay(5000).ConfigureAwait(false); // prevent deadlock
+        await Task.Delay(5000);
         if (fail)
         {
             fail = false;

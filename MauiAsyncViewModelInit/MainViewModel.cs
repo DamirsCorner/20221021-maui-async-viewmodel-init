@@ -5,11 +5,20 @@ namespace MauiAsyncViewModelInit;
 [ObservableObject]
 public partial class MainViewModel
 {
+    private readonly DataService dataService;
+    private readonly Task initTask;
+
     [ObservableProperty]
     private List<string> items = new();
 
     public MainViewModel(DataService dataService)
     {
-        items = dataService.LoadItems().Result;
+        this.dataService = dataService;
+        this.initTask = InitAsync();
+    }
+
+    private async Task InitAsync()
+    {
+        Items = await dataService.LoadItems();
     }
 }
