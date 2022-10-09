@@ -7,7 +7,6 @@ namespace MauiAsyncViewModelInit;
 public partial class MainViewModel
 {
     private readonly DataService dataService;
-    private readonly Task initTask;
 
     [ObservableProperty]
     private List<string> items = new();
@@ -21,7 +20,6 @@ public partial class MainViewModel
     public MainViewModel(DataService dataService)
     {
         this.dataService = dataService;
-        this.initTask = InitAsync();
     }
 
     [RelayCommand]
