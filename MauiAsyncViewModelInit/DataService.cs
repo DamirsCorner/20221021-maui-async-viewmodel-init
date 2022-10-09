@@ -1,7 +1,7 @@
 ﻿namespace MauiAsyncViewModelInit;
 public class DataService
 {
-    private bool fail = true;
+    private bool fail = false;
 
     public async Task<List<string>> LoadItems()
     {

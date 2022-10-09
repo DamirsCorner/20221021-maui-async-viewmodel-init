@@ -11,6 +11,9 @@ public partial class MainViewModel
     [ObservableProperty]
     private List<string> items = new();
 
+    [ObservableProperty]
+    private bool loading = true;
+
     public MainViewModel(DataService dataService)
     {
         this.dataService = dataService;
@@ -20,5 +23,6 @@ public partial class MainViewModel
     private async Task InitAsync()
     {
         Items = await dataService.LoadItems();
+        Loading = false;
     }
 }
